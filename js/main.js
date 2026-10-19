@@ -26,7 +26,10 @@
     });
     dots.forEach(function (d, k) { d.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
   }
-  function start() { if (!reduce) timer = setInterval(function () { go(i + 1); }, 5000); }
+  function start() {
+    clearInterval(timer);
+    if (!reduce) timer = setInterval(function () { go(i + 1); }, 5000);
+  }
   function stop() { clearInterval(timer); timer = null; }
   function restart() { stop(); start(); }
 
